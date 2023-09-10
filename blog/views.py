@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import *
 from django.views import generic
+from .forms import *
 
 # Create your views here.
 
@@ -14,8 +15,13 @@ class BlogDetailView(generic.DetailView):
 
 class AddBlog(generic.CreateView):
     model = Post
+    form_class = BlogForm
     template_name = 'blogs/add_blog.html'
-    fields = ('title', 'author', 'content')
+
+class UpdateBlog(generic.UpdateView):
+    model = Post
+    form_class = EditForm
+    template_name = 'blogs/update_blog.html'
 
 def login(request):
     return render(request, 'blogs/login.html')

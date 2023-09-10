@@ -16,6 +16,7 @@
       {% endblock sidebar %}
     </div>
   <a href="{% url 'blog-home' %}" class="btn btn-secondary"> Go Back </a>
+  <a href="{% url 'blog-edit' post.pk %}" class="btn btn-secondary"> Edit Post </a>
 </div>
 
 {% endblock content %} 
