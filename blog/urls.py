@@ -9,5 +9,6 @@ urlpatterns = [
 
     # add, update, delete post
     path('add-blog/', views.AddBlog.as_view(), name='blog-add'),
-    path('details/edit/<int:pk>', views.UpdateBlog.as_view(), name='blog-edit'),
+    path('details/edit/<int:pk>/', views.UpdateBlog.as_view(), name='blog-edit'),
+    path('details/<int:pk>/delete/', views.DeleteBlog.as_view(), name='blog-delete'),
 ]

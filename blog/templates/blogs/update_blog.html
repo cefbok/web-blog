@@ -4,13 +4,14 @@
 
 
 <div class="position-relative form-group m-5">
-    <h1> New Post </h1>
+    <h1> Edit Post </h1>
     <form action="" method="POST">
         {% csrf_token %}
         <div class="my-5 w-50">
             {{ form.as_p }}
         </div>
-        <button class="col-1 mx-auto btn btn-secondary"> Post </button>
+        <button class="col-1 mx-auto btn btn-success"> Save </button>
+        <a href="{% url 'blog-detail' post.pk %}" class="col-1 mx-auto btn btn-info"> Cancel </a>
     </form>
 </div>
 

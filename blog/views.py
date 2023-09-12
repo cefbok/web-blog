@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
 from django.views import generic
 from .forms import *
+from django.urls import reverse_lazy
 
 # Create your views here.
 
@@ -22,6 +23,11 @@ class UpdateBlog(generic.UpdateView):
     model = Post
     form_class = EditForm
     template_name = 'blogs/update_blog.html'
+
+class DeleteBlog(generic.DeleteView):
+    model = Post
+    template_name = 'blogs/blog_detail.html'
+    success_url = reverse_lazy('blog-home')
 
 def login(request):
     return render(request, 'blogs/login.html')
