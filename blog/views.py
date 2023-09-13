@@ -8,26 +8,24 @@ from django.urls import reverse_lazy
 
 class Home(generic.ListView):
     model = Post
-    template_name = 'blogs/home.html'
+    template_name = 'home.html'
 
 class BlogDetailView(generic.DetailView):
     model = Post
-    template_name = 'blogs/blog_detail.html'
+    template_name = 'blog_detail.html'
 
 class AddBlog(generic.CreateView):
     model = Post
     form_class = BlogForm
-    template_name = 'blogs/add_blog.html'
+    template_name = 'add_blog.html'
 
 class UpdateBlog(generic.UpdateView):
     model = Post
     form_class = EditForm
-    template_name = 'blogs/update_blog.html'
+    template_name = 'update_blog.html'
 
 class DeleteBlog(generic.DeleteView):
     model = Post
-    template_name = 'blogs/blog_detail.html'
+    template_name = 'blog_detail.html'
     success_url = reverse_lazy('blog-home')
 
-def login(request):
-    return render(request, 'blogs/login.html')

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %} The Blob Blog | {{ object.title }} {% endblock   %}
+{% block content %}
+
+<body>
+  <form action="" method="POST"> 
+    {% csrf_token %}
+    <div class="container mt-5">
+      {{ form.as_p}}
+      <br>
+      <button class="btn btn-primary"> Login </button>
+      <a href="{% url 'register' %}" class="btn btn-secondary"> Register </a>
+    </div>
+  </form>
+</body>
+{% endblock %}

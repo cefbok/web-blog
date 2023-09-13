@@ -1,4 +1,4 @@
-{% extends 'blogs/base.html' %}
+{% extends 'base.html' %}
 {% block title %} The Blob Blog | {{ object.title }} {% endblock   %}
 {% block content %}
 
@@ -15,10 +15,10 @@
           </form>
         </div>
         {% block sidebar %} 
-        {% include 'blogs/sidebar.html' %} 
+        {% include 'sidebar.html' %} 
         {% endblock sidebar %}
       </div>
-    <a href="{% url 'blog-home' %}" class="btn btn-primary"> Go Back </a>
+    <a href="{% url 'blog-home' %}" class="btn btn-primary"> &larr; Go Back </a>
     <a href="{% url 'blog-edit' post.pk %}" class="btn btn-info"> Edit Post </a>
     <button onclick="document.getElementById('del_post').style.display='block'" class="btn btn-success"> Delete Post </button>
   </div>
@@ -30,7 +30,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title"> Delete Post </h5>
+            <h5 class="modal-title"> Delete Post:  {{ object.title }} </h5>
           </div>
           <div class="modal-body">
             <p> Are you sure you want to delete this post? </p>

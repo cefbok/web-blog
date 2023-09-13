@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
+from django.template.defaultfilters import slugify
 
 
 class Post(models.Model):
@@ -19,3 +20,9 @@ class Post(models.Model):
     
     def get_absolute_url(self):
         return reverse('blog-detail', kwargs={"pk":self.id})
+    
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.slug = slugify(self.title)
+
+        super(Post, self).save(*args, **kwargs)
