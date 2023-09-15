@@ -8,7 +8,7 @@
           <form action="" method="POST">
             {% csrf_token %}
             <div class="card-body">
-              <h1>{{ object.title }}</h1>
+              <h1 class="border-bottom border-danger">{{ object.title }}</h1>
               <p class="text-muted">{{ object.author }} | {{ object.created_on }}</p>
               <p class="card-text">{{ object.content | safe }}</p>
             </div>
@@ -18,9 +18,11 @@
         {% include 'sidebar.html' %} 
         {% endblock sidebar %}
       </div>
-    <a href="{% url 'blog-home' %}" class="btn btn-primary"> &larr; Go Back </a>
-    <a href="{% url 'blog-edit' post.pk %}" class="btn btn-info"> Edit Post </a>
-    <button onclick="document.getElementById('del_post').style.display='block'" class="btn btn-success"> Delete Post </button>
+      <div class="">
+        <a href="{% url 'blog-home' %}" class="btn btn-primary"> &larr; Go Back </a>
+        <a href="{% url 'blog-edit' post.pk %}" class="btn btn-info"> Edit Post </a>
+        <button onclick="document.getElementById('del_post').style.display='block'" class="btn btn-danger"> Delete Post </button>
+      </div>
   </div>
 
 <!-- Modal for delete confirmation -->
