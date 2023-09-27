@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 from django.template.defaultfilters import slugify
+from django_quill.fields import QuillField
 
 
 class Post(models.Model):
@@ -10,7 +11,7 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_posts')
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
-    content = models.TextField()
+    content = QuillField(blank=True, null=True)
 
     class Meta:
         ordering = ['-created_on']

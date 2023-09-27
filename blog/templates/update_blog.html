@@ -9,6 +9,7 @@
         <form action="" method="POST">
             {% csrf_token %}
             <div class="my-5 w-50">
+                {{ form.media }}
                 {{ form.as_p }}
             </div>
             <button class="col-1 mx-auto btn btn-success"> Save </button>

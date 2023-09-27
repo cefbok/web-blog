@@ -29,7 +29,7 @@
           <div class="card-body">
             <h2 class="card-title border-bottom border-danger">{{ post.title }}</h2>
             <p class="card-text text-muted">{{ post.author }} | {{ post.created_on}} </p>
-            <p class="card-text">{{ post.content|truncatewords:25|safe }}</p>
+            <p class="card-text">{{ post.content.html|truncatewords:25|safe }}</p>
             <a href="{% url 'blog-detail' post.pk %}" class="btn btn-primary">Read More &rarr;</a>
           </div>
         </div>
