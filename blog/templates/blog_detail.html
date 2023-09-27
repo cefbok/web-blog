@@ -20,14 +20,18 @@
       </div>
       <div class="">
         <a href="{% url 'blog-home' %}" class="btn btn-primary"> &larr; Go Back </a>
-        <a href="{% url 'blog-edit' post.pk %}" class="btn btn-info"> Edit Post </a>
-        <button onclick="document.getElementById('del_post').style.display='block'" class="btn btn-danger"> Delete Post </button>
+        {% if user.id  ==  object.author.id %}
+          <a href="{% url 'blog-edit' post.pk %}" class="btn btn-info"> Edit Post </a>
+          <button onclick="document.getElementById('del_post').style.display='block'" class="btn btn-danger"> Delete Post </button>
+        {% endif %}
       </div>
   </div>
 
 <!-- Modal for delete confirmation -->
+
 <form action="{% url 'blog-delete' post.pk %}" method="POST">
   {% csrf_token %}
+
   <div id="del_post" class="modal">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
